@@ -66,5 +66,5 @@ DQN 알고리즘은 2013년 딥마인드가 "playing atari with deep reinforceme
 
 
 <img src="./img/dqn_loss_surface.png"></img>
-
+<img src="./img/dqn_loss_surface_2.png"></img>
 
