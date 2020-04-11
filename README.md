@@ -18,22 +18,35 @@ Loss Surface를 시각화하는 방법은 두개의 가우시안 분포를 따�
 Loss Surface에 관한 자세한 설명 및 논문 리뷰는 <a href="https://youtu.be/sAslF_B-JBE">링크</a>를 참조바랍니다. 
 
 ## 2. Loss Surface 가 강화학습을 만날 때,
-Loss Surface는 고차원의 변수를 학습하는 딥러닝 모델 어느곳에서도 사용할 수 있습니다. 다음은 mnist 데이터를 신경망에 훈련시킨 Loss Surface 입니다.
+Loss Surface는 고차원의 변수를 학습하는 어느 딥러닝 모델에서도 사용가능합니다. 아래 그림은 mnist 데이터를 가지고 2개의 은닉층을 가진 신경망의 Loss Surface 입니다.
 
 <img src="./img/mnist_loss_surface.png"></img>
 
-이번 프로젝트에서는 강화학습 중에서도 신경망을 사용한 Q Network 에서 학습이 잘 안되고, DQN 이 Q Network가 가지는 여러 한계점들을 극복하면서 좋은 성능을 낼 수 있었는지를 Loss Surface를 통해서 확인해보도록 하겠습니다. 
+
+이번 프로젝트에서는 기본적인 MNIST를 데이터를 가지고 Loss Surface 를 표현하는 예제와 강화학습 모델의 Loss Surface 를 적용한 예제를 살펴보도록 하겠습니다. 오픈에아이 짐이라는 환경을 통해서 가장 기본적인 예제인 카트폴에 큐네크워크와 DQN 알고리즘을 적용해보겠습니다. 같은 환경에서 두개의 다른 알고리즘을 적용하면서 각 알고리즘의 Loss Surface를 비교해보도록 하겠습니다.
+
+
 
 ### 1. Q-Network Loss Surface 
 
-Q-Learning 의 수렴은 이루어지지 않음. Q-table 은 증명이 되어 있음. 하지만 Q-Network 에서는 학습이 되지 않는데 그 이유는 다음 두가지 이유가 있음. 
--Correlation with sample data
--Non stationary 
+큐네트워크는 신경망이 발산하는 문제가 있었습니다. 
+1. 그 이유는 첫번째로, 샘플들간의 시간적인 상관관계가 있기 때문입니다. 
+만약에 안좋은 방향으로 학습이 진행된다면 신경망은 그 방향으로 계속 업데이트가 되게 됩니다. 이 경우 정작 좋은 상황에 대해 학습을 못하기 때문에 학습이 잘 되지 않습니다. 
+2. 두번째로, 업데이트의 목표가 되는 정답이 계속 변하기 때문에 최적화하기 어렵습니다.
+
+
 
 <img src="./img/q_learning_loss_surface.png"></img>
 
 ### 2. DQN Loss Surface 
--Deep , Replay, Separated Network
+DQN 알고리즘은 2013년 딥마인드가 "playing atari with deep reinforcement leanring" 이라는 논문에서 소개했습니다.
+
+1. Experience Replay 
+에이전트가 환경을 탐험하며 얻은 샘플을 메모리에 저장합니다 이 리플레이 메모리에서 여러개의 샘플을 무작위로 뽑아서 뽑은 샘플에 대해 신경망을 학습합니다. 리플레이 메모리를 사용함으로써, Q network 가 가지고 이던 샘플 간의 상관관계를 없앨 수 있습니다. 
+
+2. Target Network
+타깃신경망을 따로 만들어서 일정 시간동안 값을 유지하도록 합니다.
+
 
 <img src="./img/dqn_loss_surface.png"></img>
 
