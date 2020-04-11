@@ -22,18 +22,18 @@ Loss Surface를 시각화하는 방법은<b> 두개의 가우시안 분포를 �
 <b>Loss Surface에 관한 자세한 설명 및 논문 리뷰는</b> <a target="_blank" href="https://youtu.be/sAslF_B-JBE">링크</a>를 참조바랍니다. 
 
 ## 2. Loss Surface 가 강화학습을 만날 때,
-
+<ol>
+  <li>1_MNIST_LossSurface.ipynb </li> 
+  <li>2_QNetwork_LossSurface.ipynb </li> 
+  <li>3_DQN_LossSurface.ipynb</li> 
+</ol>
 Loss Surface는 고차원의 변수를 학습하는 <b>어느 딥러닝 모델에서도 사용가능</b>합니다. 아래 그림은 MNIST 데이터를 2개의 은닉층을 가진 신경망에 학습한 Loss Surface 그림 입니다.
 
 <img src="./img/mnist_loss_surface.png"></img>
 
 
 이번 프로젝트에서는 MNIST를 데이터를 가지고, <b>기본적으로 Loss Surface 를 표현하는 예제와 Loss Surface 를 강화학습 모델에 적용한 예제</b>를 살펴보도록 하겠습니다. 강화학습 예제에서는 오픈에아이 짐이라는 환경을 통해서 카트폴에 Q-Network 와 DQN 알고리즘을 적용해보겠습니다. 같은 환경에서 두개의 다른 알고리즘을 적용하면서 <b>Q-Network 와 DQN 알고리즘의 Loss Surface를 비교</b>해보도록 하겠습니다.
-<ol>
-  <li>1_MNIST_LossSurface.ipynb </li> 
-  <li>2_QNetwork_LossSurface.ipynb </li> 
-  <li>3_DQN_LossSurface.ipynb</li> 
-</ol>
+
 
 
 ### 1. Q-Network Loss Surface 
