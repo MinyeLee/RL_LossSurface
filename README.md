@@ -12,6 +12,7 @@
 하지만, 고차원의 목적 함수를 사람이 이해할 수 있는 3차원 공간안에 표현함으로써, 신경망의 훈련 과정을 더 잘 이해할 수 있으며, 네트워크 설계에 필요한 인사이트를 얻을 수 있습니다.  
 
 ### Loss Surface 만드는 법  
+
 Loss Surface를 시각화하는 방법은<b> 두개의 가우시안 분포를 따르는 랜덤 방향 벡터</b>를 만드는 것입니다. (0,0) 의 중앙 지점은 이미 훈련된 파라미터에서의 Loss 값으로 최저점을 의미한다고 볼 수 있습니다. 
 두개의 방향 벡터를 만든 뒤, 각 방향벡터에 -1 부터 1까지의 상수를 곱하고, 기존 네트워크의 학습된 파라미터와 더하여 Loss Surface 를 시각화 합니다.  
 
@@ -21,6 +22,7 @@ Loss Surface를 시각화하는 방법은<b> 두개의 가우시안 분포를 �
 <b>Loss Surface에 관한 자세한 설명 및 논문 리뷰는</b> <a target="_blank" href="https://youtu.be/sAslF_B-JBE">링크</a>를 참조바랍니다. 
 
 ## 2. Loss Surface 가 강화학습을 만날 때,
+
 Loss Surface는 고차원의 변수를 학습하는 <b>어느 딥러닝 모델에서도 사용가능</b>합니다. 아래 그림은 MNIST 데이터를 2개의 은닉층을 가진 신경망에 학습한 Loss Surface 그림 입니다.
 
 <img src="./img/mnist_loss_surface.png"></img>
@@ -37,8 +39,10 @@ Loss Surface는 고차원의 변수를 학습하는 <b>어느 딥러닝 모델�
 ### 1. Q-Network Loss Surface 
 
 Q-Network 에서는 신경망이 전역 최저점으로 <b>수렴하지 못하는 문제</b>가 있었습니다. 그 원인은, 
+
 <b>1. 샘플들간의 시간적인 상관관계</b> 
 만약에 안좋은 방향으로 학습이 진행된다면 신경망은 그 방향으로 계속 업데이트가 되게 되므로, 이 경우 정작 좋은 상황에 대해 학습을 못하기 때문에 학습이 잘 되지 않습니다. 
+
 <b>2.타겟 값의 변화</b> 
 업데이트의 목표가 되는 <b>정답이 계속 변하기 때문에</b> 최적화하기 어렵습니다.
 
@@ -47,6 +51,7 @@ Q-Network 에서는 신경망이 전역 최저점으로 <b>수렴하지 못하�
 <img src="./img/q_learning_loss_surface.png"></img>
 
 ### 2. DQN Loss Surface 
+
 DQN 알고리즘은 2013년 딥마인드가 "playing atari with deep reinforcement leanring" 이라는 논문에서 소개했습니다.
 
 <b>1. Experience Replay </b>
